@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {%  load static %}
+    <link rel="stylesheet" href=" {% static 'inventory/product_detail.css' %} ">
+</head>
+<body>
+    <h4>{{payment.amount}}</h4>
+    <p>{{payment.receipt}} </p>
+    <span>{{payment.status}}</span><a href="/templates/payment/payment_list.html"></a>
+    <button>  <a href="/templates/payment/payment_list.html"> Proceed </a> </button>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            this.submit();
+        });
+    </script>
+</body>
+</html>

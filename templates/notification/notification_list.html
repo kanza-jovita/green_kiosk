@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/products_list.css' %}">
+</head>
+<body>
+  <h3>Notifications</h3>
+    <table class="table">
+            <th>Name</th>
+            <th>Message</th>
+            <th class="detail">Date</th>
+            <th>Details</th>
+            <th>Edit</th>
+        {% for notification in notifications %}
+        <tr>
+            <td>{{notification.customer_name}}</td>
+            <td>{{notification.message}}</td>
+            <td>{{notification.date}}</td>
+            <td>{{notification.notification_type}}</td>
+            <td class="details"><a href="{% url 'notification_details_view' id=notification.id %}"> View notifiction details</a></td>
+            <td><a href="{%url 'notification_edit_view' id=notification.id %}"><button> EDIT</button></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

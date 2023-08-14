@@ -4,27 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    {%load static%}
-    <link rel="stylesheet" href="{% static 'css/products_list.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .notification-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .notification {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .notification h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .notification h3 {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+
+        .notification a {
+            text-decoration: none;
+            color: #447a73;
+            margin-right: 10px;
+        }
+
+        .notification button {
+            background-color:#05332d;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .notification button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-  <h3>Notifications</h3>
-    <table class="table">
-            <th>Name</th>
-            <th>Message</th>
-            <th class="detail">Date</th>
-            <th>Details</th>
-            <th>Edit</th>
+    <h1>Notifications</h1>
+    <div class="notification-container">
         {% for notification in notifications %}
-        <tr>
-            <td>{{notification.customer_name}}</td>
-            <td>{{notification.message}}</td>
-            <td>{{notification.date}}</td>
-            <td>{{notification.notification_type}}</td>
-            <td class="details"><a href="{% url 'notification_details_view' id=notification.id %}"> View notifiction details</a></td>
-            <td><a href="{%url 'notification_edit_view' id=notification.id %}"><button> EDIT</button></a></td>
-        </tr>
+        <div class="notification">
+            <h2>{{notification.customer_name}}</h2>
+            <h3>{{notification.message}}</h3>
+            <h3>{{notification.date}}</h3>
+            <h3>{{notification.notification_type}}</h3>
+            <a href="{% url 'notification_details_view' id=notification.id %}">  <button>View notification details</button> </a>
+            <!-- <a href="{%url 'notification_edit_view' id=notification.id %}"><button>EDIT</button></a> -->
+        </div>
         {% endfor %}
-    </table>
+    </div>
 </body>
 </html>

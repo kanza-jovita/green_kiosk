@@ -8,17 +8,35 @@
     <link rel="stylesheet" href=" {% static 'inventory/product_detail.css' %} ">
 </head>
 <body>
+    <div>
     <h4>{{product.name}}</h4>
     <img src="{{product.image.url}}"/>
     <p>{{product.description}} </p>
     <span>{{product.price}}</span><a href="/templates/inventory/cart.html"></a>
-    <button>  <a href="/templates/Cart/cart_list.html"> Add to cart </a> </button>
+    <button>  <a href="/templates/cart/cart_list.html"> Add to cart </a> </button>
+    </div>
+    <div class="popular-products">
+        <h2>Most Popular Products</h2>
+        
+        <div class="popular-product">
+            <h4>v</h4>
+            <img src="popular_product_1_image_url" alt="Popular Product 1">
+            <p>Description of Popular Product 1</p>
+            <span>Price of Popular Product 1</span>
+            <button><a href="popular_product_1_link">View Product</a></button>
+        </div>
+        
+        <!-- Repeat similar blocks for other popular products -->
+        
+        <div class="popular-product">
+            <h4>Popular Product 2</h4>
+            <img src="popular_product_2_image_url" alt="Popular Product 2">
+            <p>Description of Popular Product 2</p>
+            <span>Price of Popular Product 2</span>
+            <button><a href="popular_product_2_link">View Product</a></button>
+        </div>
 
-    <script>
-        document.querySelector('form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            this.submit();
-        });
-    </script>
+
+   
 </body>
 </html>

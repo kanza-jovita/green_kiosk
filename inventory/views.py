@@ -31,7 +31,7 @@ def edit_product(request, id):
         form = ProductuploadForm(request.POST, instance=product)
         if form.is_valid():
             form.save()
-            return redirect("product_detail", id=id)
+            return redirect("product_detail_view", id=id)
     else:
         form = ProductuploadForm(instance=product)
 

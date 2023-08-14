@@ -11,7 +11,7 @@ def upload_cart(request):
     else:
         form = CartUploadForm()
         
-    return render(request, "cart/cart_upload.html", {"form": form})
+    return render(request, "cart/upload_cart.html", {"form": form})
   
   
 def cart_list(request):
@@ -19,7 +19,7 @@ def cart_list(request):
     return render (request, "cart/cart_list.html", {"carts": carts})
   
   
-def  cart_detail(request,id):
+def  cart_details(request,id):
   cart = Cart.objects.get(id =id)
   return render(request,"cart/cart_detail.html",{"cart": cart})
 

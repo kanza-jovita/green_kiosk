@@ -6,7 +6,7 @@ from payment.models import Payment
 
 def upload_payment(request):                      
     if request.method == 'POST':
-        uploaded_payment = request.FILES["text"]
+        # uploaded_payment = request.FILES["text"]
         form = PaymentuploadForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
@@ -18,12 +18,12 @@ def upload_payment(request):
   
 def payments_list(request):
     payments = Payment.objects.all()
-    return render (request, "payment/payments_list.html", {"payments": payments})
+    return render (request, "payment/payment_list.html", {"payments": payments})
   
   
 def  payment_detail(request,id):
   payment = Payment.objects.get(id =id)
-  return render(request,"payment/payments_detail.html",{"payment":payment})
+  return render(request,"payment/payment_detail.html",{"payment":payment})
 
 
 

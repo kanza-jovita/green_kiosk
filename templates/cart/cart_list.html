@@ -9,6 +9,7 @@
     <title>Document</title>
 </head>
 <body>
+    {% include "navbar.html" %}
     <table>
             <tr>
                 <th>Number of products</th>
@@ -24,7 +25,8 @@
                 <td>{{ cart.number_of_products }}</td>
                 <td>{{ cart.total_amount }}</td>
                 <td>{{ cart.shipping_cost }}</td>
-                <td><a href="{% url 'cart_details_view' cart.id %}">View More</a></td>
+              <td>  <a href="{% url 'product_detail_view' id=cart.id  %}">  <button>View More</button>  </a></td>
+                <td><a href="{% url 'payment_list_view' %}">Checkout</a></td>
                 <td><a href="{% url 'edit_cart_view' cart.id %}">Edit</a></td>
             </tr>
             {% endfor %}

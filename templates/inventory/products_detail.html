@@ -6,34 +6,84 @@
     <title>Document</title>
     {%  load static %}
     <link rel="stylesheet" href=" {% static 'inventory/product_detail.css' %} ">
+    <style>
+        /* Style for the individual product container */
+        .product-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Style for the popular products section */
+        .popular-products {
+            margin-top: 40px;
+        }
+
+        /* Style for each popular product */
+        .popular-product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: inline-block;
+            width: 30%;
+            vertical-align: top;
+            text-align: center;
+        }
+
+        /* Style for product images */
+        .product-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Style for buttons */
+        .product-button {
+            display: block;
+            margin-top: 10px;
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+    </style>
+
 </head>
 <body>
-    <div>
+
+    {% include "navbar.html" %}
+    <div class="popular-product">
     <h4>{{product.name}}</h4>
     <img src="{{product.image.url}}"/>
     <p>{{product.description}} </p>
     <span>{{product.price}}</span><a href="/templates/inventory/cart.html"></a>
-    <button>  <a href="/templates/cart/cart_list.html"> Add to cart </a> </button>
+    <a href = "{% url 'cart_list_view' %}"><button>Add to cart</button></a>
+
+
+
+
+
     </div>
     <div class="popular-products">
         <h2>Most Popular Products</h2>
         
         <div class="popular-product">
-            <h4>v</h4>
-            <img src="popular_product_1_image_url" alt="Popular Product 1">
+            <img src="{{product.image.url}}"/>
+            <img src="popular_product_1_image_url" alt="">
             <p>Description of Popular Product 1</p>
-            <span>Price of Popular Product 1</span>
-            <button><a href="popular_product_1_link">View Product</a></button>
+            <span>50.00</span>
+            <button>View Product</a></button>
         </div>
         
         <!-- Repeat similar blocks for other popular products -->
         
         <div class="popular-product">
-            <h4>Popular Product 2</h4>
-            <img src="popular_product_2_image_url" alt="Popular Product 2">
+            <img src="{{product.image.url}}"/>
+            <img src="popular_product_2_image_url" alt="">
             <p>Description of Popular Product 2</p>
-            <span>Price of Popular Product 2</span>
-            <button><a href="popular_product_2_link">View Product</a></button>
+            <span>50.00</span>
+            <button>View Product</button>
         </div>
 
 

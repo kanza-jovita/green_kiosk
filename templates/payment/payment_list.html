@@ -3,14 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
 
-    <link rel="stylesheet" href=" {% static 'css/products_list.css'%}">
     <title>Document</title>
 
-
+    <style>
+      .payment-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+    
+      .payment-table th,
+      .payment-table td {
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: center;
+      }
+    
+      .payment-table th {
+        background-color: #f2f2f2;
+      }
+    
+      .payment-table td a {
+        text-decoration: none;
+        color: #007bff;
+      }
+    
+      .payment-table td a:hover {
+        text-decoration: underline;
+      }
+    </style>
 </head>
 <body>
+  {% include "navbar.html" %}
     <table>
         <th class="heading">
             <td>Amount</td>

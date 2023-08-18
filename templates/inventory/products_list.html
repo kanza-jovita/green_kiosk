@@ -49,6 +49,7 @@
         font-size: 1em;
         cursor: pointer;
         transition: background-color 0.3s;
+        border-radius: 5px;
       }
       
       .products button:hover {
@@ -74,7 +75,6 @@
       <h2>{{product.price}}</h2>
       <a href = "{% url 'product_detail_view' id=product.id%}"><button>View More</button></a>
 
-      <a href="{% url 'product_edit_view' id=product.id %}"><button>Edit</button></a>  
     </div>
     {%endfor%}
   </div>

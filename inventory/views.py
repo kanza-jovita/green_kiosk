@@ -20,7 +20,7 @@ def products_list(request):
   
   
 def  product_detail(request,id):
-  product = Product.objects.get(id =id)
+  product = Product.objects.get(id=id)
   return render(request,"inventory/products_detail.html",{"product":product})
 
 
@@ -38,3 +38,10 @@ def edit_product(request, id):
     return render(request, "inventory/edit_product.html", {"form": form})
 
 
+def search_results(request):
+    query = request.GET.get('q')
+    if query:
+        results = Product.objects.filter(name__icontains=query)
+    else:
+        results = []
+    return render(request, 'search_results.html', {'results': results, 'query': query})

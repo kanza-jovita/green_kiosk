@@ -6,67 +6,71 @@
     <title>Document</title>
     {%  load static %}
     <link rel="stylesheet" href=" {% static 'inventory/product_detail.css' %} ">
+    
     <style>
-        .detail {
-          background-color: #f9f9f9;
-          border: 1px solid #ddd;
-          padding: 20px;
+      .detail {
+          background-color: #ffffff;
+          border: 1px solid #e0e0e0;
+          padding: 25px;
           margin: 20px;
-          border-radius: 5px;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .detail h4 {
-          font-size: 1.5em;
-          margin: 0;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+  
+      .detail h4 {
+          font-size: 1.8em;
+          margin: 0 0 10px;
           color: #333;
-        }
-        
-        .detail p {
+      }
+  
+      .detail p {
           margin: 10px 0;
-          color: #555;
-        }
-        
-        .detail span {
+          color: #777;
+          line-height: 1.4;
+      }
+  
+      .detail span {
           display: inline-block;
-          margin-top: 10px;
-          padding: 5px 10px;
-          background-color: #3498db;
+          margin-top: 15px;
+          padding: 6px 12px;
+          background-color: #ff6b6b;
           color: #fff;
-          border-radius: 3px;
-        }
-        
-        .detail button a {
+          border-radius: 5px;
+          font-weight: bold;
+      }
+  
+      .detail button a {
           text-decoration: none;
           color: #fff;
-        }
-        
-        .detail button {
-          background-color: #3498db;
+      }
+  
+      .detail button {
+          background-color: #ff6b6b;
           color: #fff;
           border: none;
-          padding: 10px 20px;
-          font-size: 1em;
+          padding: 12px 25px;
+          font-size: 1.1em;
           cursor: pointer;
           transition: background-color 0.3s;
-          border-radius: 3px;
-        }
-        
-        .detail button:hover {
-          background-color: #2980b9;
-        }
-        </style>
-        
+          border-radius: 5px;
+          font-weight: bold;
+      }
+  
+      .detail button:hover {
+          background-color: #ff4f4f;
+      }
+  </style>
+  
+
 </head>
 <body>
   {% include "navbar.html" %}
     <div class="detail">
     <h4>{{payment.amount}}</h4>
     <p>{{payment.receipt}} </p>
-    <span>{{payment.status}}</span><a href="/templates/payment/payment_list.html"></a>
-    <button>  <a href="/templates/payment/payment_list.html"> Proceed </a> </button>
+    <a href="/templates/inventory/products_list.html">Make Payment</a>
     </div>
 
-   
+
 </body>
 </html>

@@ -4,26 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <link rel = "stylesheet" href = "{% static 'inventory/products_list.css' %}">
+    <link rel="stylesheet" href="{% static 'inventory/products_list.css' %}">
+    
+    <style>
+      /* Reset default margin and padding */
+      body, h1, h2, h3, p, ul, ol {
+          margin: 0;
+          padding: 0;
+      }
+  
+      /* Set a background color for the body */
+      body {
+          background-color: #f9f9f9;
+          font-family: 'Helvetica Neue', Arial, sans-serif;
+      }
+  
+      /* Center the content horizontally */
+      .container {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 40px;
+      }
+  
+      /* Style for the table */
+      table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 30px;
+      }
+  
+      th, td {
+          padding: 15px;
+          text-align: left;
+          border-bottom: 1px solid #e0e0e0;
+      }
+  
+      th {
+          background-color: #f5f5f5;
+          font-weight: bold;
+      }
+  
+      tr:nth-child(even) {
+          background-color: #f5f5f5;
+      }
+  
+      /* Style for the "Customer details" button */
+      .customer-details-button {
+          background-color: #ff9a8b;
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          padding: 10px 20px;
+          text-decoration: none;
+          cursor: pointer;
+          transition: background-color 0.3s ease-in-out;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+  
+      .customer-details-button:hover {
+          background-color: #ff6559;
+      }
+  </style>
+  
     <title>Document</title>
 </head>
 <body>
-  {% include "navbar.html" %}
-    <table>
-        <th class="heading">
-            <td>first_name</td>
-            <td>last_name</td>
-            <td>email</td>
-            <td>address</td>
-          </th>
-          {%for customer in customers%}
-          <tr>
-            <td>{{customer.firstName}}</td>
-            <td>{{customer.lastName}}</td>
-            <td>{{customer.email}}</td>
-            <td><a href="{% url 'customer_detail_view' id=customer.id %}"><button>Customer details</button></a></td>
-         </tr>
-      {%endfor%}
-    </table>
+    {% include "navbar.html" %}
+    <div class="container">
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+            {% for customer in customers %}
+            <tr>
+                <td>{{ customer.firstName }}</td>
+                <td>{{ customer.lastName }}</td>
+                <td>{{ customer.email }}</td>
+                <td><a href="{% url 'customer_detail_view' id=customer.id %}" class="customer-details-button">Customer Details</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 </body>
 </html>

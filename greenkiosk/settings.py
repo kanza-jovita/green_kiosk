@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'reviews',
     'notifications',
     'shipment',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

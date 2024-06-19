@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from .forms import ProductuploadForm
 from inventory.models import Product
 
+
 def upload_product(request):                      
     if request.method == 'POST':
         uploaded_product = request.FILES["image"]
@@ -11,7 +12,7 @@ def upload_product(request):
     else:
         form = ProductuploadForm()
         
-    return render(request, "inventory/product_upload.html", {"form": form})
+    return render(request, "inventory/products_upload.html", {"form": form})
   
   
 def products_list(request):
@@ -44,4 +45,4 @@ def search_results(request):
         results = Product.objects.filter(name__icontains=query)
     else:
         results = []
-    return render(request, 'search_results.html', {'results': results, 'query': query})
+    return render(request, 'inventory/search_results.html', {'results': results, 'query': query})
